@@ -13,6 +13,12 @@ window.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     localStorage.setItem("Name", txtInput.value);
   };
-
+  preLoadTxt(txtInput);
   form.onsubmit = saveData;
 });
+const preLoadTxt = (input) => {
+  const storedText = localStorage.getItem("Name");
+  if (storedText && input) {
+    input.value = storedText;
+  }
+};
